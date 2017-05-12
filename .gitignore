@@ -3,4 +3,5 @@
 *.pyc
 env
 node_modules
-app/static/bundle.js
+npm-debug.log
+/bin
