@@ -1,6 +1,6 @@
 .DS_Store
 
 *.pyc
-venv
+env
 node_modules
 app/static/bundle.js
