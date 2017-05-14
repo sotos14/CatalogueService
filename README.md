@@ -25,6 +25,7 @@ install the dependancies in the ```app/static``` directory with ```npm install``
 ### Unit Tests
 
 To run the tests for the backend execute ```python manage.py test``` in the project directory
+
 To run the tests for the front-end execute ```npm test``` in the ```app/static``` directory
 
 ### Set the user cookie to get the products by location
