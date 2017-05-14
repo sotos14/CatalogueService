@@ -19,6 +19,7 @@ class ProductsView extends Component {
         super(props);
         this.showError = this.showError.bind(this);
         this.onItemChecked = this.onItemChecked.bind(this);
+        this.renderCheckoutButton = this.renderCheckoutButton.bind(this);
     }
     
     componentWillMount() {
@@ -62,6 +63,26 @@ class ProductsView extends Component {
         }
     }
     
+    renderCheckoutButton() {
+        return(
+            <div className="checkout-button">
+                <RaisedButton 
+                    containerElement={
+                        <Link 
+                            to={{
+                                pathname: 'confirm',
+                                query: {items: this.props.basketItems.map(item => item.product)}
+                            }}
+                        />
+                    }
+                    label="Checkout"
+                    primary={true}
+                    disabled={_.isEmpty(this.props.basketItems)}
+                />
+            </div>
+        );
+    }
+    
     render() {
         
         if(!this.props.location) {
@@ -96,21 +117,7 @@ class ProductsView extends Component {
                         items={this.props.basketItems}
                         isBasket={true}
                     />
-                    <div className="checkout-button">
-                        <RaisedButton 
-                            containerElement={
-                                <Link 
-                                    to={{
-                                        pathname: 'confirm',
-                                        query: {items: this.props.basketItems.map(item => item.product)}
-                                    }}
-                                />
-                            }
-                            label="Checkout"
-                            primary={true}
-                            disabled={_.isEmpty(this.props.basketItems)}
-                        />
-                    </div>
+                    {this.renderCheckoutButton()}
                 </Paper>
             </div>
         );
@@ -127,8 +134,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {fetchProducts, fetchLocation, selectProduct, removeProduct},
+  return bindActionCreators({
+        fetchProducts, 
+        fetchLocation, 
+        selectProduct, 
+        removeProduct
+    },
     dispatch
   );
 }
