@@ -40,3 +40,9 @@ For the customer with location LONDON: customerid => customer1
 For the customer with location LIVERPOOL: customerid => customer2
 
 For the customer with location LEEDS: customerid => customer3
+
+### Demo
+
+The app is live in a heroku instance for demonstration purposes. Follow the link below:
+
+[Catalogue Service Heroku](https://catalogue-sky.herokuapp.com/)
