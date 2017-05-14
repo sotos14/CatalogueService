@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 import _ from 'lodash';
 import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
@@ -93,10 +94,18 @@ class ProductsView extends Component {
                     <h4 className="title">Basket</h4>
                     <ProductList
                         items={this.props.basketItems}
-                        isBasketItem={true}
+                        isBasket={true}
                     />
                     <div className="checkout-button">
                         <RaisedButton 
+                            containerElement={
+                                <Link 
+                                    to={{
+                                        pathname: 'confirm',
+                                        query: {items: this.props.basketItems.map(item => item.product)}
+                                    }}
+                                />
+                            }
                             label="Checkout"
                             primary={true}
                             disabled={_.isEmpty(this.props.basketItems)}
