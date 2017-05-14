@@ -32,7 +32,7 @@ def get_location(customerId):
 
 def bad_request(message):
     response = jsonify({'error': message})
-    response.status_code = 400
+    response.status_code = 220
     return response
     
 
