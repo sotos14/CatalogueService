@@ -154,7 +154,7 @@ describe('Product View', () => {
 		setTimeout(() => {
 			expect(props.selectProduct.calledOnce).to.equal(true);
 			expect(props.removeProduct.called).to.equal(false);
-		});
+		}, 100);
     });
 	
 	it('should remove product item when un-checked', () => {
@@ -182,6 +182,6 @@ describe('Product View', () => {
 		setTimeout(() => {
 			expect(props.selectProduct.called).to.equal(false);
 			expect(props.removeProduct.calledOnce).to.equal(true);
-		});
+		}, 100);
     });
 });

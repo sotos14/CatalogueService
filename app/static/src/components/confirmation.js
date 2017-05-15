@@ -9,10 +9,12 @@ export default class Confirmation extends Component {
         return(
             <div className="confirmation">
                 <AppBar showMenuIconButton={false} />
-                <div>
-                    <h4>Checkout Confirmation (user id: {userId})</h4>
+                <div className="confirmation-details">
+                    <h4 className="confirmation-title">
+                        Checkout Confirmation (user id: {userId})
+                    </h4>
                     <p>Items selected: </p>
-                    <ul>
+                    <ul className="confirmation-items">
                     {
                         Array.isArray(items) ?
                             items.map((item) => {
