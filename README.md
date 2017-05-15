@@ -22,6 +22,11 @@ pip install -r requirements.txt
 The React project runs with webpack.
 install the dependancies in the ```app/static``` directory with ```npm install```
 
+### Run the App
+
+To run the app locally start the python server with the ```python manage.py runserver``` command.
+The app is available at ```http://127.0.0.1:5000/```
+
 ### Unit Tests
 
 To run the tests for the backend execute ```python manage.py test``` in the project directory
