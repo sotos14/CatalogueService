@@ -16,7 +16,7 @@ export default class Confirmation extends Component {
                     {
                         Array.isArray(items) ?
                             items.map((item) => {
-                                return (<li>{item}</li>)
+                                return (<li key={item}>{item}</li>)
                             }) : items
                     }
                     </ul>

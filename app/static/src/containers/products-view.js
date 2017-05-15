@@ -13,7 +13,7 @@ import ProductList from '../components/product-list';
 
 import '../styles.scss';
 
-class ProductsView extends Component {
+export class ProductsView extends Component {
     
     constructor(props) {
         super(props);
@@ -64,6 +64,12 @@ class ProductsView extends Component {
     }
     
     renderCheckoutButton() {
+        const items = this.props.basketItems;
+        let queryParam = '';
+        if(items) {
+            queryParam = items.map(item => item.product);
+        }
+        
         return(
             <div className="checkout-button">
                 <RaisedButton 
@@ -71,7 +77,9 @@ class ProductsView extends Component {
                         <Link 
                             to={{
                                 pathname: 'confirm',
-                                query: {items: this.props.basketItems.map(item => item.product)}
+                                query: {
+                                    items: queryParam
+                                }
                             }}
                         />
                     }
