@@ -128,4 +128,60 @@ describe('Product View', () => {
 
 		expect(productsEle.length).to.equal(3);
     });
+    
+    it('should add product item when checked', () => {
+        const props = {
+            selectProduct: spy(),
+            removeProduct: spy(),
+            location: 'LONDON',
+            products: {
+                sports: [{id: 1, product: 'p1'}]
+            }
+        }
+        
+        const wrapper = mount(
+            <Provider store={store}>
+                <MuiThemeProvider>
+                    <ProductsView {...props} />
+                </MuiThemeProvider>
+            </Provider>
+		);
+        
+        wrapper.find('input[type="checkbox"]')
+            .simulate('change', { target: { checked: true } });
+		
+
+		setTimeout(() => {
+			expect(props.selectProduct.calledOnce).to.equal(true);
+			expect(props.removeProduct.called).to.equal(false);
+		});
+    });
+	
+	it('should remove product item when un-checked', () => {
+        const props = {
+            selectProduct: spy(),
+            removeProduct: spy(),
+            location: 'LONDON',
+            products: {
+                sports: [{id: 1, product: 'p1'}]
+            }
+        }
+        
+        const wrapper = mount(
+            <Provider store={store}>
+                <MuiThemeProvider>
+                    <ProductsView {...props} />
+                </MuiThemeProvider>
+            </Provider>
+		);
+        
+        wrapper.find('input[type="checkbox"]')
+            .simulate('change', { target: { checked: false } });
+		
+
+		setTimeout(() => {
+			expect(props.selectProduct.called).to.equal(false);
+			expect(props.removeProduct.calledOnce).to.equal(true);
+		});
+    });
 });

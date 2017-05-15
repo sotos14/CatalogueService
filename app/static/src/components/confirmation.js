@@ -7,7 +7,7 @@ export default class Confirmation extends Component {
         const userId = localStorage.getItem(USER_COOKIE);
         const items = this.props.location.query.items;
         return(
-            <div>
+            <div className="confirmation">
                 <AppBar showMenuIconButton={false} />
                 <div>
                     <h4>Checkout Confirmation (user id: {userId})</h4>
