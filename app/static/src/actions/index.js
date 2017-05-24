@@ -7,6 +7,7 @@ export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
 export const FETCH_LOCATION_FAILURE = 'FETCH_LOCATION_FAILURE';
 export const PRODUCT_SELECTED = 'PRODUCT_SELECTED';
 export const PRODUCT_REMOVED = 'PRODUCT_REMOVED';
+export const BASKET_CLEARED = 'BASKET_CLEARED';
 
 export function fetchProducts(location) {
     return function(dispatch) {
@@ -65,4 +66,11 @@ export function removeProduct(productId) {
         type: PRODUCT_REMOVED,
         payload: productId
     };
+}
+
+export function clearBasket() {
+    return {
+        type: BASKET_CLEARED,
+        payload: {}
+    }
 }
