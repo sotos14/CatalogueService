@@ -9,6 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import USER_COOKIE from '../consts';
 import ProductList from '../components/product-list';
+import CheckoutButton from '../components/button';
 import * as actions from '../actions';
 
 
@@ -87,7 +88,7 @@ export class ProductsView extends Component {
                 <RaisedButton 
                     label="Checkout"
                     primary={true}
-                    disabled={_.isEmpty(this.props.basketItems)}
+                    disabled={_.isEmpty(items)}
                     onTouchTap={() => this.onCheckout()}
                 />
             </div>
